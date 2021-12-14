@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "524353558175",
+    "firebase_url": "https://ustaad-app-d66b1.firebaseio.com",
+    "project_id": "ustaad-app-d66b1",
+    "storage_bucket": "ustaad-app-d66b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524353558175:android:4f5b822a81bf903e4a34aa",
+        "android_client_info": {
+          "package_name": "com.example.daryadili"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524353558175-mac93hfs6l43ebvd3b89a1k77cks0h4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXuWnzKKgj34O9CaRyYUWew-CKrP4rtOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524353558175-mac93hfs6l43ebvd3b89a1k77cks0h4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524353558175:android:a701ca7a8be099e14a34aa",
+        "android_client_info": {
+          "package_name": "in.outstretchanalytics.ustaadapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524353558175-1jdh8vpalqhuk9rm8147bci7blukd914.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.outstretchanalytics.ustaadapp",
+            "certificate_hash": "0c99224b84803b11c47ad7b780efe86818342794"
+          }
+        },
+        {
+          "client_id": "524353558175-epkkp45lhlamo20q61l4eit93v35pisb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.outstretchanalytics.ustaadapp",
+            "certificate_hash": "fe2d8eea541e11c54784368715abe4edee04f665"
+          }
+        },
+        {
+          "client_id": "524353558175-j0sl1butlhn697gkrnq3nav1q5d63kj8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.outstretchanalytics.ustaadapp",
+            "certificate_hash": "e86ae5e8d0a1e7fd96d2ce2db14ef1be8be0efeb"
+          }
+        },
+        {
+          "client_id": "524353558175-osnllenep2fj4fbdndgb4bao599hguv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.outstretchanalytics.ustaadapp",
+            "certificate_hash": "571aa5978d54ab5064dbb1f1d2d4cce4d2e20085"
+          }
+        },
+        {
+          "client_id": "524353558175-mac93hfs6l43ebvd3b89a1k77cks0h4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXuWnzKKgj34O9CaRyYUWew-CKrP4rtOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524353558175-mac93hfs6l43ebvd3b89a1k77cks0h4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
