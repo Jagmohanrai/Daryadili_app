@@ -1,6 +1,5 @@
 import 'package:daryadili/homepage.dart';
 import 'package:daryadili/login_page.dart';
-import 'package:daryadili/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

@@ -31,6 +31,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: const [
+            SizedBox(
+              height: 15,
+            ),
+            Card(
+              child: ListTile(
+                leading: CircleAvatar(
+                  child: Icon(Icons.request_quote),
+                ),
+                title: Text("My Donations"),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                leading: CircleAvatar(
+                  child: Icon(Icons.accessibility_new_sharp),
+                ),
+                title: Text("Requested Donations"),
+              ),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text("DaryaDili"),
         actions: [

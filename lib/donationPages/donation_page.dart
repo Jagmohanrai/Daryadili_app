@@ -138,6 +138,7 @@ class _DonationPageState extends State<DonationPage> {
                   "donation_condition": donationCondition.text,
                   "donation_desc": donationdesc.text,
                   "unique_code": uniqueCode,
+                  "availability": true
                 }).then((value) {
                   dbRef
                       .collection("User")
