@@ -57,12 +57,22 @@ class _LoginPageState extends State<LoginPage> {
                         email: email.text, password: password.text)
                     .then(
                   (value) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
+                    if (value.user!.emailVerified == false) {
+                      _auth.signOut();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                              "Email is not Verified Please Verify it first"),
+                        ),
+                      );
+                    } else {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    }
                   },
                 );
               },
@@ -77,8 +87,8 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Not have an account"),
-                SizedBox(
+                const Text("Not have an account"),
+                const SizedBox(
                   width: 10,
                 ),
                 InkWell(

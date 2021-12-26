@@ -127,7 +127,6 @@ class _DonationPageState extends State<DonationPage> {
               ),
               onPressed: () {
                 var uniqueCode = getRandomString(5);
-                print(uniqueCode);
                 dbRef.collection("donations").add({
                   "doner_id": _auth.currentUser?.uid,
                   "doner_name": donername.text,
@@ -147,7 +146,6 @@ class _DonationPageState extends State<DonationPage> {
                       .doc(value.id)
                       .set({"donation": value.id}).then((value) {
                     Navigator.pop(context);
-                    print("Donation Noted Succesfully");
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text("Donation Listed Succesfully"),

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,6 +13,7 @@ class DonationListPage extends StatefulWidget {
 class _DonationListPageState extends State<DonationListPage> {
   List<DocumentSnapshot>? data;
   final FirebaseFirestore dbRef = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -133,8 +135,43 @@ class _DonationListPageState extends State<DonationListPage> {
                                                                       .id)
                                                               .update({
                                                             "availability":
-                                                                false
+                                                                false,
+                                                            "requestedUser_id":
+                                                                _auth
+                                                                    .currentUser!
+                                                                    .uid
                                                           }).then((value) {
+                                                            dbRef
+                                                                .collection(
+                                                                    "User")
+                                                                .doc(_auth
+                                                                    .currentUser
+                                                                    ?.uid)
+                                                                .collection(
+                                                                    "requestedDonations")
+                                                                .doc(streamSnapshot
+                                                                    .data!
+                                                                    .docs[index]
+                                                                    .id)
+                                                                .set({
+                                                              "requestedDonation":
+                                                                  streamSnapshot
+                                                                      .data!
+                                                                      .docs[
+                                                                          index]
+                                                                      .id
+                                                            }).then((value) {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                const SnackBar(
+                                                                  content: Text(
+                                                                      "Donation requested Succesfully"),
+                                                                ),
+                                                              );
+                                                            });
                                                             Navigator.pop(
                                                                 context);
                                                           });

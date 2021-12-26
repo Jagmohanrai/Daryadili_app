@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController name = TextEditingController();
   TextEditingController pincode = TextEditingController();
   TextEditingController mobile = TextEditingController();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           email: email.text, password: password.text)
                       .then(
                     (value) {
+                      value.user?.sendEmailVerification();
                       _dbref.collection("User").doc(value.user!.uid).set({
                         "email": email.text,
                         "name": name.text,
@@ -102,7 +103,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         "pincode": pincode.text,
                         // ignore: avoid_print
                       }).then((value) {
-                        print("User Created Succesfully");
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text("User Created Succesfully"),

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:daryadili/donationPages/donation_list_page.dart';
 import 'package:daryadili/donationPages/donation_page.dart';
+import 'package:daryadili/donationPages/requested_donations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'donationPages/my_donations.dart';
 import 'login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,20 +35,30 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Drawer(
         child: ListView(
-          children: const [
+          children: [
             SizedBox(
               height: 15,
             ),
             Card(
               child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDonations()));
+                },
                 leading: CircleAvatar(
                   child: Icon(Icons.request_quote),
                 ),
-                title: Text("My Donations"),
+                title: const Text("My Donations"),
               ),
             ),
             Card(
               child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RequestedDonations()));
+                },
                 leading: CircleAvatar(
                   child: Icon(Icons.accessibility_new_sharp),
                 ),
@@ -147,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
-                            "Want Something to Donate",
+                            "Looking for donation",
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 20,
