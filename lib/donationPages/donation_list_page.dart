@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:daryadili/donationPages/requested_donations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import '../login_page.dart';
 
 class DonationListPage extends StatefulWidget {
   const DonationListPage({Key? key}) : super(key: key);
@@ -20,6 +23,41 @@ class _DonationListPageState extends State<DonationListPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Available Donation List"),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RequestedDonations(),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.real_estate_agent_outlined,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            IconButton(
+              onPressed: () {
+                _auth.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.logout,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+          ],
         ),
         body: StreamBuilder(
           stream:
@@ -172,8 +210,6 @@ class _DonationListPageState extends State<DonationListPage> {
                                                                 ),
                                                               );
                                                             });
-                                                            Navigator.pop(
-                                                                context);
                                                           });
                                                         },
                                                         child: Container(

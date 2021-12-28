@@ -21,6 +21,11 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController pincode = TextEditingController();
   TextEditingController mobile = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final List<String> _locations = [
+    "Doner(Want to Donate)",
+    "NGO(Looking for Donations)"
+  ];
+  String? _selectedLocation; //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,6 +92,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(height: 20),
+              DropdownButton(
+                hint: const Text('Type of User '),
+                value: _selectedLocation,
+                onChanged: (newValue) {
+                  setState(() {
+                    _selectedLocation = newValue as String?;
+                  });
+                },
+                items: _locations.map((location) {
+                  return DropdownMenuItem(
+                    child: Text(location),
+                    value: location,
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 20),
               MaterialButton(
                 color: Colors.blue,
                 onPressed: () {
@@ -101,6 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         "name": name.text,
                         "contact": mobile.text,
                         "pincode": pincode.text,
+                        "user": _selectedLocation,
                         // ignore: avoid_print
                       }).then((value) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                            builder: (context) => const LoginPage(),
                           ),
                         );
                       });
