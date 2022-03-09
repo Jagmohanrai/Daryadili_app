@@ -20,7 +20,7 @@ jobs:
       - run: flutter analyze
       - run: flutter test
 
-  build_android:
+  build_appbun:
     name: Build the app bundle for Android playstore
     needs: [flutter_test]
     runs-on: ubuntu-latest
@@ -29,9 +29,9 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-      -uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
-      -run: flutter pub get
-      -run: flutter clean
-      -run: flutter build appbundle 
+      - run: flutter pub get
+      - run: flutter clean
+      - run: flutter build appbundle
