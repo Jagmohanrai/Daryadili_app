@@ -16,7 +16,7 @@ class _RequestedDonationsState extends State<RequestedDonations> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("available Donations"),
+        title: const Text("all Donations"),
       ),
       body: StreamBuilder(
           stream:
