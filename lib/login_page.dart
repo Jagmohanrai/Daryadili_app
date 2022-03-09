@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(
                               builder: (context) => const RegisterPage()));
                     },
-                    child: Text("Register now")),
+                    child: const Text("Register now")),
               ],
             )
           ],
