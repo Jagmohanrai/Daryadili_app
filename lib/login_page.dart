@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Enter Email and Password to login",
+              "Enter Email and Password to login and continue to the app",
               style: TextStyle(
                 fontSize: 18,
               ),
